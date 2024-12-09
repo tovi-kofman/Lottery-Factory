@@ -1,6 +1,6 @@
-﻿using LotteryFactory.Core.InterfaceService;
+﻿using LotteryFactory.Core.Entities;
+using LotteryFactory.Core.InterfaceService;
 using Microsoft.AspNetCore.Mvc;
-using MyProject.Entities;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -40,7 +40,7 @@ namespace LotteryFactory.Api.Controllers
         [HttpPost]
         public ActionResult<bool> Post([FromBody] Lottery lottery)
         {
-            if(_lotteryService.AddLottery(lottery))
+            if(_lotteryService.AddLottery(lottery)!=null)
             {
                 return true;
             }
@@ -49,7 +49,7 @@ namespace LotteryFactory.Api.Controllers
 
         // PUT api/<LotteryController>/5
         [HttpPut("{id}")]
-        public ActionResult<bool> Put(int id, [FromBody] Lottery lottery)
+        public ActionResult<Lottery> Put(int id, [FromBody] Lottery lottery)
         {
             return _lotteryService.UpdateLottery(id,lottery);
         }

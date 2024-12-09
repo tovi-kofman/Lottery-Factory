@@ -37,14 +37,14 @@ namespace LotteryFactory.Api.Controllers
         [HttpPost]
         public ActionResult<bool> Post([FromBody] User user)
         {
-            if (_usersService.AddUser(user))
+            if (_usersService.AddUser(user) != null)
                 return true;
             return BadRequest(user);
         }
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public ActionResult<bool> Put(int id, [FromBody] User user)
+        public ActionResult<User> Put(int id, [FromBody] User user)
         {
             return _usersService.UpdateUser(id, user);
         }

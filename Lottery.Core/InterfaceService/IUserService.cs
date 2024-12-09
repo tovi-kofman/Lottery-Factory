@@ -6,8 +6,8 @@ namespace LotteryFactory.Core.InterfaceService
     {
         List<User> GetUsers();
         User GetUserById(int id);
-        bool AddUser(User user);
-        bool UpdateUser(int id, User user);
+        User AddUser(User user);
+        User UpdateUser(int id, User user);
         bool RemoveUser(int id);
     }
 }

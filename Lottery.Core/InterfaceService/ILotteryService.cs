@@ -1,4 +1,5 @@
-﻿using MyProject.Entities;
+﻿
+using LotteryFactory.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace LotteryFactory.Core.InterfaceService
     {
         List<Lottery> GetLotteries();
         Lottery GetLotteryById(int id);
-        bool AddLottery(Lottery lottery);
-        bool UpdateLottery(int id, Lottery lottery);
+        Lottery AddLottery(Lottery lottery);
+        Lottery UpdateLottery(int id, Lottery lottery);
         bool RemoveLottery(int id);
     }
 }

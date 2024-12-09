@@ -1,7 +1,13 @@
-﻿namespace MyProject.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LotteryFactory.Core.Entities
 {
+    [Table("Product")]
     public class Product
     {
+        [Key]
+        public int index { get; set; }
         static int id;
         public int ProductId { get; }
         public string Name { get; set; }

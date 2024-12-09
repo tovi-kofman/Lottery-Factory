@@ -1,9 +1,15 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace LotteryFactory.Core.Entities
 {
+    [Table("User")]
     public class User
     {
-        
+        [Key]
+        public int index { get; set; }
+
         //public int UserId { get; }
         //public string FirstName { get; set; }
         //public string LastName { get; set; }

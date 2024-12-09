@@ -1,4 +1,4 @@
-﻿namespace MyProject.Enum
+﻿namespace LotteryFactory.Core.Enum
 {
     public enum LotteryType
     {

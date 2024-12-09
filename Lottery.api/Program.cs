@@ -5,17 +5,19 @@ using LotteryFactory.Data;
 using LotteryFactory.Data.Repository;
 using LotteryFactory.Service.Services;
 using Microsoft.AspNetCore.Cors.Infrastructure;
-using MyProject.Entities;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddSingleton<DataContext<User>>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ITicketService, TicketService>();
 builder.Services.AddScoped<ILotteryService, LotteryService>();
-builder.Services.AddScoped<ILotteryRepository, LotteryRepository>();
-builder.Services.AddSingleton<DataContext<Lottery>>();
+builder.Services.AddScoped<IProductInLotteryService, ProductInLotteryService>();
+builder.Services.AddScoped(typeof(IRepositoryManager<>), typeof(RepositoryManager<>));
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddDbContext<DataContext>(option => option.UseSqlServer("Data Source = DESKTOP-SSNMLFD; Initial Catalog = Lottery-Factory; Integrated Security = true;"));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
