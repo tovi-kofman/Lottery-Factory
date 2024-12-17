@@ -6,8 +6,8 @@ namespace LotteryFactory.Service.Services
     public class UserService : IUserService
     {
         readonly IRepository<User> _userRepository;
-        readonly IRepositoryManager<User> _userManager;
-        public UserService(IRepository<User> userRepository, IRepositoryManager<User> userManager)
+        readonly IRepositoryManager _userManager;
+        public UserService(IRepository<User> userRepository, IRepositoryManager userManager)
         {
             _userRepository = userRepository;
             _userManager = userManager;
@@ -19,8 +19,9 @@ namespace LotteryFactory.Service.Services
             ErrorTZ error;
             if (tzValid.ISOK(user.Tz, out error))
             {
+                User u= _userRepository.Add(user); ;
                 _userManager.Save();
-                return _userRepository.Add(user);
+                return u; 
             }
             return null;
         }
@@ -48,7 +49,9 @@ namespace LotteryFactory.Service.Services
 
         public User UpdateUser(int id, User user)
         {
-            return _userRepository.Update(id, user);
+            User u= _userRepository.Update(id, user);
+            _userManager.Save();
+            return u;
         }
     }
 }

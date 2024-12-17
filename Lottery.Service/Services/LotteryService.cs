@@ -12,7 +12,7 @@ namespace LotteryFactory.Service.Services
     public class LotteryService : ILotteryService
     {
         readonly IRepository<Lottery> _lotteryRepository;
-        readonly IRepositoryManager<Lottery> _repositoryManager;
+        readonly IRepositoryManager _repositoryManager;
         public LotteryService(IRepository<Lottery> lotteryRepository)
         {
             _lotteryRepository = lotteryRepository;

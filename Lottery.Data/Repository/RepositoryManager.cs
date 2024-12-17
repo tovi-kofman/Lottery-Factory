@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace LotteryFactory.Data.Repository
 {
-    public class RepositoryManager<T>: IRepositoryManager<T> where T : class 
+    public class RepositoryManager: IRepositoryManager 
     {
         private readonly DataContext _dataContext;
-        public IRepository<T> Repository { get; }
-        public RepositoryManager(DataContext context, IRepository<T> repository)
+        //public IRepository<T> Repository { get; }
+        public RepositoryManager(DataContext context)
         {
             _dataContext = context;
-            Repository = repository;
+            //Repository = repository;
         }
 
         public void Save()

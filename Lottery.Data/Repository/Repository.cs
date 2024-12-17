@@ -22,6 +22,7 @@ namespace LotteryFactory.Data.Repository
         public T Add(T entity)
         {
             _dbSet.Add(entity);
+           
             return entity;
         }
 

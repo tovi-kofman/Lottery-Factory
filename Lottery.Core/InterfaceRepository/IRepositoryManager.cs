@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LotteryFactory.Core.InterfaceRepository
 {
-    public interface IRepositoryManager<T> where T : class
+    public interface IRepositoryManager
     {
-         IRepository<T> Repository { get; }
+         //IRepository<T> Repository { get; }
         void Save();
     }
 }

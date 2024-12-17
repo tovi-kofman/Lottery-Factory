@@ -15,7 +15,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ITicketService, TicketService>();
 builder.Services.AddScoped<ILotteryService, LotteryService>();
 builder.Services.AddScoped<IProductInLotteryService, ProductInLotteryService>();
-builder.Services.AddScoped(typeof(IRepositoryManager<>), typeof(RepositoryManager<>));
+builder.Services.AddScoped(typeof(IRepositoryManager), typeof(RepositoryManager));
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddDbContext<DataContext>(option => option.UseSqlServer("Data Source = DESKTOP-SSNMLFD; Initial Catalog = Lottery-Factory; Integrated Security = true;"));
 builder.Services.AddControllers();
