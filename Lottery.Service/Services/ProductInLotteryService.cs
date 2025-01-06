@@ -35,7 +35,7 @@ namespace LotteryFactory.Service.Services
 
         public List<ProductInLottery> GetProductsInLotteries()
         {
-            return _productInLotteryRepository.GetAll();   
+            return _productInLotteryRepository.GetAll(p=>p.Product,p=>p.Lottery);   
         }
 
         public bool RemoveProductInLottery(int id)

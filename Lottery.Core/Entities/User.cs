@@ -1,14 +1,15 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace LotteryFactory.Core.Entities
 {
     [Table("User")]
     public class User
     {
-        [Key]
-        public int index { get; set; }
+
+        // public int index { get; set; }
 
         //public int UserId { get; }
         //public string FirstName { get; set; }
@@ -22,7 +23,7 @@ namespace LotteryFactory.Core.Entities
         //public string Address { get; set; }
         //public bool IsActive { get; set; }
         //public AccountType AccountType { get; set; }
-
+        [Key]
         public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -35,6 +36,7 @@ namespace LotteryFactory.Core.Entities
         public string Address { get; set; }
         public bool IsActive { get; set; }
         public string AccountType { get; set; }
+        public List<Ticket> Tickets { get; set; }
 
         public User(int userId,string firstName, string lastName, string tz, string email, string password, string phoneNumber, string address, bool isActive, string accountType)
         {

@@ -30,7 +30,7 @@ namespace LotteryFactory.Service.Services
 
         public List<Ticket> GetTickets()
         {
-            return _ticketRepository.GetAll();
+            return _ticketRepository.GetAll(t=>t.Lottery,t=>t.User);
         }
 
         public bool RemoveTicket(int id)

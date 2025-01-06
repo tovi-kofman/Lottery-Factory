@@ -33,7 +33,7 @@ namespace LotteryFactory.Service.Services
 
         public List<User> GetUsers()
         {
-            return _userRepository.GetAll();
+            return _userRepository.GetAll(u=>u.Tickets);
         }
 
         public bool RemoveUser(int id)

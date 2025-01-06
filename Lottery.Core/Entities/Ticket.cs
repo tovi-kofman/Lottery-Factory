@@ -9,13 +9,19 @@ namespace LotteryFactory.Core.Entities
     [Table("Ticket")]
     public class Ticket
     {
+
+        //public int index { get; set; }
         [Key]
-        public int index { get; set; }
-        static int id;
-        public int TicketId { get; }
+        public int TicketId { get; set; }
         public int LotteryId{ get; set; }
+        [ForeignKey(nameof(LotteryId))]
+
+        public Lottery Lottery { get; set; }
         //public TicketStatus Status { get; set; }
         public int UserId { get; set; }
+        [ForeignKey(nameof(UserId))]
+
+        public User User { get; set; }
         //public DateOnly PurchaseDate { get; set; }
         //public DateOnly ExpiryDate { get; set; }
         public bool PrizeWon { get; set; }

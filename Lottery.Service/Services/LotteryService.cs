@@ -25,7 +25,7 @@ namespace LotteryFactory.Service.Services
 
         public List<Lottery> GetLotteries()
         {
-            return _lotteryRepository.GetAll();
+            return _lotteryRepository.GetAll(l =>  l.Tickets,l=>l.ProductInLotteries);
         }
 
         public Lottery GetLotteryById(int id)

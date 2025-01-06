@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,9 +35,20 @@ namespace LotteryFactory.Data.Repository
             return true;
         }
 
-        public List<T> GetAll()
+        public List<T> GetAll(params Expression<Func<T, object>>[] includes)
         {
-            return _dbSet.ToList();
+            IQueryable<T> query = _dbSet;
+
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+
+            return query.ToList();
+            //return _dbSet.ToList();
         }
 
         public T? GetById(int id)

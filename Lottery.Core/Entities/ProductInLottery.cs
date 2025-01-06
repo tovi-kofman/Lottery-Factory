@@ -8,13 +8,20 @@ namespace LotteryFactory.Core.Entities
     [Table("ProductInLottery")]
     public class ProductInLottery
     {
+
+        //public int index { get; set; }
         [Key]
-        public int index { get; set; }
-        static int id;
-        public int ProductInLotteryId { get; }
+        public int ProductInLotteryId { get; set; }
         public int ProductId { get; set; }
+        [ForeignKey(nameof(ProductId))]
+
+        public Product Product { get; set; }
         public int LotteryId { get; set; }
+        [ForeignKey(nameof(LotteryId))]
+        public Lottery Lottery { get; set; }
+
         public string WinnerId { get; set; }//?????//to add a field in user if he win or not?
+
         //public DateOnly ClaimDeadline { get; set; }
         //public PrizeDistribution PrizeDistribution { get; set; }
 
